@@ -1,33 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [amountClicked, setAmountClicked] = useState(0);
+  const increment = (event) => {
+    event.preventDefault();
+    setAmountClicked(prevAmount => prevAmount + 1);
+  }
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className='text-4xl mb-4'>Hello there. This is my first React App!</div>
+      <div>Amounts clicked: {amountClicked}</div>
+      <button className='bg-blue-500 text-white px-2 py-1 cursor-pointer hover:bg-blue-950' onClick={increment}>Click me!</button>
     </>
   )
 }
